@@ -16,14 +16,16 @@
         <script src="scripts/camera.js"></script>
         <script src="scripts/dataJson.js"></script>
         <script src="scripts/addRestaurant.js"></script>
+        
         <script src="scripts/notifications.js"></script>
         <script src="scripts/device.js"></script>
-        <script src="scripts/geolocation.js"></script>
+       <script src="scripts/geolocation.js"></script>
+        <script src="scripts/connection.js"></script>
+       
         
-         <!--<script src="scripts/connection.js"></script>
-        
+         <!--
         <script src="scripts/downloadAndSavePics.js"></script>
-        <script src="scripts/geolocation.js"></script>-->
+        -->
         
          <script src="scripts/weather.js"></script>
         
@@ -35,29 +37,26 @@
         <div id="tabstrip-home" 
              data-role="view"
              data-id="home-view"
-             data-title="Home">
+             data-title="Restaurant Picker">
     
             <div class="view-content">
-                <h1>Welcome to Restaurant Picker App</h1>
                     <ul id="devices-list">
                           
                         <li>
                               <a href="#restaurants-view">Restaurants</a>
                         </li>
                         <li>
+                            <a href="#capture-view">Capture Image</a>
+                        </li>
+                        <li>
+                            <a href="#file-system-view">Add picture</a>
+                        </li>
+                        <li>
                             <a href="#notifications-view" >Notifications</a>
                         </li>
                         <li>
-                            <a href="#device-view">Device</a>
+                            <a href="#device-view">Device Info</a>
                         </li>
-                        
-                        <li>
-                            <a href="#capture-view">Capture</a>
-                        </li>
-                        <li>
-                            <a href="#file-system-view">File System</a>
-                        </li>
-                      
                         <li>
                             <a href="#connection-view">Connection</a>
                         </li>
@@ -202,8 +201,39 @@
             <h1 data-bind="text: state"></h1>
         </div>
         
+        <!--Download and save pics-->
+          <!--<div id="file-system-view" data-id="file-system-view" data-role="view" data-layout="api-layout" data-title="File system API">
+            
+            <div class="content">
+            <div style="margin:10px 5px;">Clicking the button downloads an image from the Icenium site and saves it on the device.</div>
+            <div class="action-area ch30">
+                <button class="button dh" id="download">Download</button>
+            </div>
+			<div class="result-area ch70">
+                <div class="results">
+                    <div id="result" class="desc"></div>
+                    <img id="downloadedImage"/>
+                </div>
+                <div class="separator"></div>
+            </div>
+		</div>-->
+      
         
-        
+         <!--Geolocation-->
+         <div data-role="view" id="geolocation-view" data-id="geolocation-view" data-add-back-btn="true" data-title="Geolocation" data-layout="api-layout">
+            <div class="content">
+                <div class="action-area ch30">
+                    <button class="button dh" id="watchButton">Start Geolocation Watch</button>
+    			    <button class="button dh" id="refreshButton">Refresh Geolocation</button>
+                </div>
+    			<div class="result-area ch70">
+                    <div class="results">
+                        <div id="results" class="desc"></div>
+                    </div>
+                    <div class="separator"></div>
+                </div>
+    		</div>
+        </div>
         
         
         <!--Layout tabstrip-->

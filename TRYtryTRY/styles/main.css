@@ -48,6 +48,18 @@ body, html {
     line-height:1.6em;
 }
 
+/* BUTTON STYLES*/
+.buttonArea {
+    text-align: center;
+}
+.login-button {
+    width:85%;
+    max-width:300px;
+    line-height:1.6em;
+}
+
+
+
 /* MAP STYLES*/
 #map-canvas {
     position: absolute;

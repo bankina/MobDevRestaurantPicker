@@ -16,13 +16,14 @@
         <script src="scripts/camera.js"></script>
         <script src="scripts/dataJson.js"></script>
         <script src="scripts/addRestaurant.js"></script>
-        <script src="scripts/downloadAndSavePics.js"></script>
+        <script src="scripts/notifications.js"></script>
+        <script src="scripts/device.js"></script>
+        <script src="scripts/geolocation.js"></script>
         
          <!--<script src="scripts/connection.js"></script>
-        <script src="scripts/device.js"></script>
+        
         <script src="scripts/downloadAndSavePics.js"></script>
-        <script src="scripts/geolocation.js"></script>
-        <script src="scripts/notifications.js"></script>-->
+        <script src="scripts/geolocation.js"></script>-->
         
          <script src="scripts/weather.js"></script>
         
@@ -58,8 +59,8 @@
                         </li>
                       
                         <li>
-                            <a href="#media-view">Media</a>
-                        </li>  
+                            <a href="#connection-view">Connection</a>
+                        </li>
               
                         <li>
                             <a href="#geolocation-view">Geolocation</a>
@@ -125,8 +126,86 @@
             <p style="font-size:1.5em" id="events-indicator"></p>
         </div>
         
+         <!--Notifications-->
+       <div id="notifications-view" data-id="notifications-view" data-role="view" data-layout="api-layout" data-title="Notifications API"
+             data-show="app.notifications.init"
+             data-hide="app.notifications.close">
+            <ul class="listview">
+                <li>
+                    <a data-role="touch" class="button" data-tap="app.notifications.alert">Alert</a>
+                </li>
+                <li>
+                    <a data-role="touch" class="button" data-tap="app.notifications.confirm">Confirm</a>
+                </li>
+                <li>
+                    <a data-role="touch" class="button" data-tap="app.notifications.prompt">Prompt</a>
+                </li>
+                <li>
+                    <a data-role="touch" class="button" data-tap="app.notifications.beep">Beep</a>
+                </li>
+                <li>
+                    <a data-role="touch" class="button" data-tap="app.notifications.vibrate">Vibrate</a>
+                </li>
+            </ul>
+        </div>
         
-      
+         <!--Device-->
+        <div id="device-view" data-id="device-view" data-role="view" data-layout="api-layout" data-title="Device API"
+                data-show="app.deviceInfo.init">
+            <table>
+                <tr>
+                    <td>
+                        <span data-align="right">Device Name:</span>
+                    </td>
+                    <td>
+                        <strong data-align="left" data-bind="text: name"></strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span data-align="right">Cordova Version:</span>
+                    </td>
+                    <td>
+                        <strong data-align="left" data-bind="text: cordova"></strong>
+                    </td>
+                </tr>
+                <tr> 
+                    <td>
+                        <span data-align="right">Platform:</span>
+                    </td>
+                    <td>
+                        <strong data-align="left" data-bind="text: platform"></strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span data-align="right">Device UUID:</span>
+                    </td>
+                    <td>
+                        <strong data-align="left" data-bind="text:uuid"></strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span data-align="right">Version:</span>
+                    </td>
+                    <td>
+                        <strong data-align="left" data-bind="text:version"></strong>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+         <!--Connection-->
+         <div id="connection-view" data-id="connection-view" data-role="view" data-layout="api-layout" data-title="Connection API"
+            data-show="app.connectionApi.init" data-hide="app.connectionApi.close">
+            <h1 data-bind="text: state"></h1>
+        </div>
+        
+        
+        
+        
+        
         <!--Layout tabstrip-->
         <div data-role="layout" id="tabstrip-layout" data-id="tabstrip-layout">
             <header data-role="header">

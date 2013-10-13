@@ -20,6 +20,8 @@
             }
 
             that.set("isLoggedIn", true);
+            app.application.navigate("#restaurants-view");
+            
         },
 
         onLogout: function () {

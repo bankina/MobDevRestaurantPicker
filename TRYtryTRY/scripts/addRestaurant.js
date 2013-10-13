@@ -1,6 +1,8 @@
 var app = app || {};
 
 document.addEventListener("deviceready", function () {
+    
+    
     (function getData() {  
         $('#add-restaurant-btn').bind('click', function(){            
             var name = $("#rest-name").val();

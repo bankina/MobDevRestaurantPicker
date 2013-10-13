@@ -27,7 +27,7 @@
         <script src="scripts/downloadAndSavePics.js"></script>
         -->
         
-         <script src="scripts/weather.js"></script>
+     
         
         <script src="scripts/app.js"></script>
 
@@ -68,27 +68,68 @@
            			 </ul>
         		</div>
   
+                    <div id="resultEvent"></div>
+                     <div class="separator"></div>
+		
             </div>
       
         <!--Restaurants List-->
+        
         <div data-role="view"
              id="restaurants-view"
              data-id="restaurants-view"
              data-add-back-btn="true"
              data-title="Restaurants"
-             data-layout="api-layout">
+             data-layout="api-layout"
+             data-init="mobileListViewPullToRefresh"
+            >
             
+            <ul id="pull-to-refresh-listview"></ul>
             
             <a class="button" data-role="button" href="#add-restaurant-view" style="display: block; margin-top: 2em; text-align: center;width:95; max-width:300px;line-height:1.6em;">Add New Restaurant</a>
                 <ul data-role="listview" id="links">
-                <img id="restaurant-pic"/>
+                    <img id="restaurant-pic"/>
                     <h5>
                         Loading ...
                     </h5>
-                </ul>
-            
-            
-        </div>	
+                </ul>           
+        </div>
+        
+        <script type="text/x-kendo-tmpl" id="pull-to-refresh-template">
+            <div class="product-item">        
+                <h3>#:Name#</h3>
+                <h2>#:Address#</h2>
+            </div>
+        </script>
+
+        <script>
+            var restaurantData = [{"Name":"Name One", "Address" : "Address One"}];
+            function mobileListViewPullToRefresh(e) {                
+                restaurantData.push({"Name":"Name "+restaurantData.length, "Address" : "Address"+restaurantData.length});
+                var dataSource = new kendo.data.DataSource({                  
+                    data: restaurantData,  
+                    
+                    schema: {
+                        total: function () { return 77; }
+                    },            
+                    serverPaging: true,
+                    pageSize: 40
+                    
+                   
+                });
+                
+                
+
+                $("#pull-to-refresh-listview").kendoMobileListView({
+                    
+                    dataSource: dataSource,
+                    pullToRefresh: true,            
+                    template: $("#pull-to-refresh-template").text()            
+                });
+                
+                dataSource.read(); 
+            }
+        </script>
         
         
         <!--Add Restaurant-->
@@ -248,8 +289,8 @@
             </header>
             <div data-role="footer">
                 <div data-role="tabstrip">
-                    <a href="#tabstrip-home" data-icon="home">Home</a>
                     <a href="views/login-view.html#tabstrip-login" data-icon="contacts">Login</a>
+                    <a href="#tabstrip-home" data-icon="home">Home</a>
                     <a href="views/location-view.html#tabstrip-location" data-icon="search">Location</a>
                 </div>
             </div>

@@ -42,6 +42,9 @@ document.addEventListener("deviceready", function () {
                         
                         
                 //});
+        
+        
+        
     }(app));
     
             

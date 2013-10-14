@@ -4,7 +4,7 @@ function onDeviceReady() {
 	var that = this,
 	App = new downloadApp(),
 	fileName = "sample.png",
-	uri = encodeURI("http://www.icenium.com/assets/img/icenium-logo.png"),
+	uri = encodeURI("http://www.nakov.com/wp-content/uploads/2011/09/image43.png"),
 	folderName = "test";
     
 	navigator.splashscreen.hide();

@@ -97,9 +97,9 @@
         </script>
 
         <script>
-            //var restaurantData = [{"Name":"Name One", "Address" : "Address One"}];
+            var restaurantData = [{"Name":"Name One", "Address" : "Address One"}];
             function mobileListViewPullToRefresh(e) {                
-                //restaurantData.push({"Name":"Name "+restaurantData.length, "Address" : "Address"+restaurantData.length});
+                restaurantData.push({"Name":"Name "+restaurantData.length, "Address" : "Address"+restaurantData.length});
                 var dataSource = new kendo.data.DataSource({                  
                     data: restaurantData,  
                     
